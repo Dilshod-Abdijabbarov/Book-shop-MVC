@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Books.ViewModels.HomeIndextViewModel
+<head>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    tr {
+        border-bottom: 1px solid #ddd;
+    }
+</style>
+</head>
+<body>  
+    <table>
+        <thead>
+            <tr>
+                <td>id</td>
+                <td>Author</td>
+                <td>Name</td>
+                <td>Price</td>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model.GetBooksAll)
+        {
+            <tbody>
+                <tr>               
+                    <td>@item.id</td>
+                    <td>@item.Author</td>
+                    <td>@item.Name</td>
+                    <td>@item.Price</td>
+                    <td>
+                        <a asp-controller="Home" asp-action="details" asp-route-id="@item.id" class="btn btn-success" m-1>View</a>                
+                        <a asp-controller="Home" asp-action="edit" asp-route-id="@item.id" class="btn btn-primary" m-1>Edit</a>
+                        <a asp-controller="Home" asp-action="Delete" asp-route-id="@item.id" type="submit" class="btn btn-danger" onclick="return confirm('Kitob haqiqatdan ham ochirmoqchimisiz ?');">Delete</a>
+                    </td>                 
+                </tr>
+            </tbody>
+
+        }
+
+    </table>
+</body>

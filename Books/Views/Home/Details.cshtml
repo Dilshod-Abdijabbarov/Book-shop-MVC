@@ -1,0 +1,38 @@
+﻿@model Book
+
+@{
+    ViewBag.Tile = "View Details";
+}
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        tr {
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<table>
+    <thead>
+        <tr>
+            <td>id</td>
+            <td>Author</td>
+            <td>Name</td>
+            <td>Price</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>           
+            <td>@Model.id</td>
+            <td>@Model.Author</td>
+            <td>@Model.Name</td>
+            <td>@Model.Price</td>
+        </tr>
+    </tbody>
+</table>
+
+
+   
